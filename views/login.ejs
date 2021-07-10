@@ -1,0 +1,41 @@
+<%- include ('./includes/head.ejs') %>
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Blogger</h1>
+        <p class="col-lg-10 fs-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-light" action="/login" method="POST">
+        <% if(passwordError) {%>
+          <div class="alert alert-danger" role="alert">
+            Invalid password
+          </div>
+        <% } %>
+        <% if(userNotFound) {%>
+          <div class="alert alert-danger" role="alert">
+            User not found, please signup
+          </div>
+        <% } %>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+          <small class="text-muted"><a href="http://localhost:<%= process.env.APPLICATION_PORT%>/forgotPassword">forgot password?</a></small><br> 
+          <small class="text-muted">Please login to access services.</small>
+          <hr class="my-4">
+        </form>
+        <form class="p-4 p-md-5 border rounded-3 bg-light" action="/signup" method="GET">
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Signup</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<%- include ('./includes/foot.ejs') %>

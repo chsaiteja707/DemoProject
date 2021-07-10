@@ -1,0 +1,19 @@
+<%- include ('./includes/head.ejs') %>
+<%- include ('./includes/nav.ejs') %>
+<div>
+    <div>
+        <img src="/images/<%=blog.image %>" alt="..." srcset="" style="width: 500px; height: 500px;padding: 10px;">
+    </div>
+    <div>
+        Title
+    </div>
+    <% if (owner) {  %>
+    <a href="http://localhost:<%=  process.env.APPLICATION_PORT%>/blog/edit/<%=blog._id %>" class="btn btn-primary">
+        Edit
+      </a>
+    <form action="http://localhost:<%=  process.env.APPLICATION_PORT%>/blog/delete/<%=blog._id %>/<%=blog.image %>"  method="POST">
+        <button class="btn btn-danger">Delete</button>
+    </form>
+    <% } %>
+</div>
+<%- include ('./includes/foot.ejs') %>
